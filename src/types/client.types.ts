@@ -13,6 +13,7 @@ export type OAuthStartAuthFlow = {
   response_type: OAuth2GrantType;
   state?: string;
   scope?: string[];
+  codeVerifier?: string;
 };
 
 export type OAuthStartAuthFlowResponse =

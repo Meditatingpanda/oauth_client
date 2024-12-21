@@ -1,37 +1,41 @@
-const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.ts',
-  mode: process.env.NODE_ENV || 'development',
+  entry: "./src/index.ts",
+  mode: process.env.NODE_ENV || "development",
+  output: {
+    publicPath: "/",
+  },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".tsx", ".ts", ".js"],
     alias: {
-      '@core': path.resolve(__dirname, 'src/core'),
-      '@types': path.resolve(__dirname, 'src/types'),
-      '@utils': path.resolve(__dirname, 'src/utils'),
-      '@browser': path.resolve(__dirname, 'src/browser'),
+      "@core": path.resolve(__dirname, "src/core"),
+      "@types": path.resolve(__dirname, "src/types"),
+      "@utils": path.resolve(__dirname, "src/utils"),
+      "@browser": path.resolve(__dirname, "src/browser"),
     },
+    fallback: { crypto: false },
   },
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "index.js",
+    path: path.resolve(__dirname, "dist"),
     library: {
-      name: 'OAuthClient',
-      type: 'umd',
+      name: "OAuthClient",
+      type: "umd",
       umdNamedDefine: true,
     },
-    globalObject: 'this',
+    globalObject: "this",
   },
   optimization: {
     minimize: true,
@@ -46,7 +50,5 @@ module.exports = {
       }),
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-  ],
-}; 
+  plugins: [new CleanWebpackPlugin()],
+};
