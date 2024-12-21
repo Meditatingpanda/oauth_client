@@ -12,8 +12,10 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@core/*": ["src/core/*"],
       "@types/*": ["src/types/*"],
+      "@types": ["src/types"],
+      "@core/*": ["src/core/*"],
+      "@browser/*": ["src/browser/*"],
       "@utils/*": ["src/utils/*"]
     }
   },
