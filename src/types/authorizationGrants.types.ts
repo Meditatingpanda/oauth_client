@@ -31,6 +31,7 @@ export type OAuth2GrantType =
   | "implicit"
   | "password"
   | "client_credentials"
-  | "refresh_token";
+  | "refresh_token"
+  | "code";
 
 export type OAuth2CodeChallengeMethod = "S256" | "plain";

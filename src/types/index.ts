@@ -1,4 +1,8 @@
-import { OAuthClientSettings } from "./client.types";
+import {
+  OAuthClientSettings,
+  OAuthStartAuthFlow,
+  OAuthStartAuthFlowResponse,
+} from "./client.types";
 import {
   OAuth2AuthorizationRequest,
   OAuth2AuthorizationResponse,
@@ -12,4 +16,8 @@ export {
   OAuth2AuthorizationResponse,
   OAuth2GrantType,
   OAuth2Token,
+  OAuthStartAuthFlow,
+  OAuthStartAuthFlowResponse,
 };
+
+
